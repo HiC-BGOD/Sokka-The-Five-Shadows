@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bdaqx6n2we2tk"
-path="res://.godot/imported/DUNGEON ASSET PACK.png-3648e0abfbc4b017b58b97c3736c7601.ctex"
+uid="uid://sr7ls8mruqib"
+path="res://.godot/imported/Props-Rocks.png-d350f6aa6eb225f14db61f25747c58c4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/DUNGEON ASSET PACK.png"
-dest_files=["res://.godot/imported/DUNGEON ASSET PACK.png-3648e0abfbc4b017b58b97c3736c7601.ctex"]
+source_file="res://Assets/Tilemaps/Props-Rocks.png"
+dest_files=["res://.godot/imported/Props-Rocks.png-d350f6aa6eb225f14db61f25747c58c4.ctex"]
 
 [params]
 

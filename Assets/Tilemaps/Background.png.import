@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhsmjee6ba4h5"
-path="res://.godot/imported/Idle.png-01086f3b22065e2bbf33b8dca694dc8f.ctex"
+uid="uid://d2x25ui2m2upd"
+path="res://.godot/imported/Background.png-ca9aa97a05bef77a5df04ea284c7d8f9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Martial Hero 2/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-01086f3b22065e2bbf33b8dca694dc8f.ctex"]
+source_file="res://Assets/Tilemaps/Background.png"
+dest_files=["res://.godot/imported/Background.png-ca9aa97a05bef77a5df04ea284c7d8f9.ctex"]
 
 [params]
 

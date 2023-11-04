@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=3 uid="uid://dlxloyxl2qahl"]
+[gd_scene load_steps=48 format=3 uid="uid://dlxloyxl2qahl"]
 
 [ext_resource type="Script" path="res://Bosses/Boss1.gd" id="1_0oxe0"]
 [ext_resource type="Texture2D" uid="uid://du8hvp2w7bqvn" path="res://Assets/Fantasy Martial Characters 3/Character_1/attack1.png" id="1_luuc8"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dpx3ke7sh1gqr" path="res://Assets/Fantasy Martial Characters 3/Character_1/Take Hit.png" id="5_1h8to"]
 [ext_resource type="Texture2D" uid="uid://cyw0uioqob7qo" path="res://Assets/Fantasy Martial Characters 3/Character_1/Idle.png" id="6_kwkds"]
 [ext_resource type="Texture2D" uid="uid://easwv48ku4t6" path="res://Assets/Fantasy Martial Characters 3/Character_1/Run.png" id="7_onkur"]
+[ext_resource type="Script" path="res://Bosses/Move.gd" id="9_88g4x"]
+[ext_resource type="Script" path="res://Bosses/StateMachine.gd" id="9_a7uek"]
+[ext_resource type="Script" path="res://Bosses/Attack.gd" id="10_gc57p"]
+[ext_resource type="Script" path="res://Bosses/Die.gd" id="11_d3obi"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_kd1po"]
 atlas = ExtResource("1_luuc8")
@@ -286,19 +290,36 @@ script = ExtResource("1_0oxe0")
 position = Vector2(1065, 528)
 scale = Vector2(3.31, 3.815)
 sprite_frames = SubResource("SpriteFrames_invve")
-animation = &"Run"
+animation = &"Attack1"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss1"]
 position = Vector2(1068, 522.5)
 shape = SubResource("RectangleShape2D_i1lxk")
+
+[node name="Attack" type="RayCast2D" parent="Boss1"]
+
+[node name="StateMachine" type="Node" parent="Boss1"]
+script = ExtResource("9_a7uek")
+
+[node name="Move" type="Node" parent="Boss1/StateMachine"]
+script = ExtResource("9_88g4x")
+
+[node name="Attack" type="Node" parent="Boss1/StateMachine"]
+script = ExtResource("10_gc57p")
+
+[node name="Timer" type="Timer" parent="Boss1/StateMachine/Attack"]
+
+[node name="Die" type="Node" parent="Boss1/StateMachine"]
+script = ExtResource("11_d3obi")
 
 [node name="Detection_Area" type="Area2D" parent="Boss1"]
 collision_layer = 2
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Boss1/Detection_Area"]
-position = Vector2(1070, 520)
+position = Vector2(1065, 520)
 shape = SubResource("CircleShape2D_w6me6")
 
+[connection signal="timeout" from="Boss1/StateMachine/Attack/Timer" to="Boss1/StateMachine/Attack" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Boss1/Detection_Area" to="Boss1" method="_on_detection_area_body_entered"]
 [connection signal="body_exited" from="Boss1/Detection_Area" to="Boss1" method="_on_detection_area_body_exited"]

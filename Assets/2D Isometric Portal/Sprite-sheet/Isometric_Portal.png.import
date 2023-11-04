@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dhsmjee6ba4h5"
-path="res://.godot/imported/Idle.png-01086f3b22065e2bbf33b8dca694dc8f.ctex"
+uid="uid://d1thiwvvoth60"
+path="res://.godot/imported/Isometric_Portal.png-afc349d5cf5371f3d4a07ad62009f038.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Martial Hero 2/Idle.png"
-dest_files=["res://.godot/imported/Idle.png-01086f3b22065e2bbf33b8dca694dc8f.ctex"]
+source_file="res://Assets/2D Isometric Portal/Sprite-sheet/Isometric_Portal.png"
+dest_files=["res://.godot/imported/Isometric_Portal.png-afc349d5cf5371f3d4a07ad62009f038.ctex"]
 
 [params]
 

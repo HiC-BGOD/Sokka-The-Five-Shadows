@@ -1,87 +1,68 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -550.0
-var isAttacking = false
+@export var speed: float = 200.0
 
+
+
+@onready var sprite : Sprite2D = $Sprite2D
+
+@onready var animation_tree : AnimationTree = $AnimationTree
+
+@onready var state_machine : StateMachine = $StateMachine
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
+var direction : Vector2 = Vector2.ZERO
+
+
+func _ready():
+	animation_tree.active = true
 
 func _physics_process(delta):
 	# Add the gravity.
 	if not is_on_floor():
 		velocity.y += gravity * delta
-		$Sprite.animation = "Fall"
-	elif abs(velocity.x) > 0 and $Sprite.animation != "Run":
-		$Sprite.play("Run") 
-	elif velocity.x == 0:
-			$Sprite.animation = "Idle"
+		
 
 	# Handle Jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		$Sprite.play("Jump") 
-		velocity.y = JUMP_VELOCITY
+	
+		
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = Input.get_axis("Left", "Right")
-	if direction:
-		velocity.x = direction * SPEED
-		if direction < 0:
-			$Sprite.flip_h = true
-		else:
-			$Sprite.flip_h = false;
+	direction = Input.get_vector("Left", "Right", "Up", "Down")
+	if direction.x != 0 && state_machine.check_if_can_move():
+		velocity.x = direction.x * speed
 	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
-
-func _process(delta):
-	if Input.is_action_just_pressed("Attack1"):
-		$Sprite.play("Attack1")
-		
-		
-	if Input.is_action_just_pressed("Attack2"):
-		$Sprite.play("Attack2")
-		
+		velocity.x = move_toward(velocity.x, 0, speed)
+	
+	
 
 	move_and_slide()
+	update_Animation_parameters()
+	update_facing_direction()
 
 
-#var movement = Vector2()
-#var up = Vector2(0,-1)
-#var speed = 200
-#var isAttacking = false
-#
-#
-#func _process(delta):
-#	var direction = Input.get_axis("Left", "Right")
-#	if direction:
-#		velocity.x = direction * speed
-#		if direction < 0:
-#			$Sprite.flip_h = true
+func update_Animation_parameters():
+	animation_tree.set("parameters/Move/blend_position", direction.x)
+	
+#	if not animation_locked:
+#		if direction.x != 0:
+#			animated_sprite.play("Run")
 #		else:
-#			$Sprite.flip_h = false;
-#	else:
-#		velocity.x = move_toward(velocity.x, 0, speed)
-#	if Input.is_action_pressed("Right") && isAttacking == false:
-#		movement.x = speed
-#		$Sprite.play("Run")
-#	elif Input.is_action_pressed("Left") && isAttacking == false:
-#		movement.x = -speed
-#		$Sprite.play("Run")
-#	else:
-#		movement.x = 0
-#		if isAttacking == false:
-#			$Sprite.play("Idle")
-#
-#	if Input.is_action_just_pressed("Attack1"):
-#		$Sprite.play("Attack1")
-#		isAttacking = true
-#
-#	if Input.is_action_just_pressed("Attack2"):
-#		$Sprite.play("Attack2")
-#		isAttacking = true
-#	move_and_slide()
+#			animated_sprite.play("Idle")
+	
+	
+func update_facing_direction():
+	if direction.x > 0:
+		sprite.flip_h = false
+	elif direction.x < 0:
+		sprite.flip_h = true
+		
+
+	
+	
+
