@@ -1,7 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://crohi2vh5h1me"]
+[gd_scene load_steps=10 format=3 uid="uid://crohi2vh5h1me"]
 
 [ext_resource type="Texture2D" uid="uid://bdaqx6n2we2tk" path="res://Assets/Tilemaps/DUNGEON ASSET PACK.png" id="1_wpcwk"]
 [ext_resource type="PackedScene" uid="uid://c17ou5ltq0slh" path="res://Player/player.tscn" id="2_sjqps"]
+[ext_resource type="PackedScene" uid="uid://dllx8bfa72fgd" path="res://Bosses/boss_1.tscn" id="3_s6aph"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1q1w"]
 texture = ExtResource("1_wpcwk")
@@ -1196,3 +1197,6 @@ process_callback = 0
 position_smoothing_enabled = true
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
+
+[node name="Boss1" parent="." instance=ExtResource("3_s6aph")]
+position = Vector2(2687, 518)

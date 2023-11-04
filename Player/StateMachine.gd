@@ -16,6 +16,8 @@ func _ready():
 			child.player = player
 			child.playback = animation_tree["parameters/playback"]
 			
+			child.connect("interrupt_state", on_state_interrupt_state)
+			
 		else:
 			push_warning("Child " + child.name + " is not a State for StateMachine")
 
@@ -41,3 +43,6 @@ func switch_states(new_state : State):
 
 func _input(event : InputEvent): 
 		current_state.state_input(event)
+
+
+func on_state_interrupt_state(new_state : State):

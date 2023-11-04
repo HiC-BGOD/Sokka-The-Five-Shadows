@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d1rpcl5ppnicv"]
+
+[ext_resource type="Script" path="res://UI/helath_changed_manager.gd" id="1_1kt6n"]
+[ext_resource type="PackedScene" uid="uid://f0hvtyvvrcm3" path="res://UI/health_changed_label.tscn" id="2_aquo7"]
+
+[node name="HelathChangedManager" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_1kt6n")
+health_changed_label = ExtResource("2_aquo7")

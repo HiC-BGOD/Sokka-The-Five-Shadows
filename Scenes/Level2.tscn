@@ -1,12 +1,12 @@
 [gd_scene load_steps=11 format=3 uid="uid://kblblqth88pw"]
 
-[ext_resource type="Texture2D" uid="uid://d2x25ui2m2upd" path="res://Assets/Tilemaps/Background.png" id="1_23bh3"]
-[ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Assets/Tilemaps/Tiles.png" id="2_4wkv0"]
-[ext_resource type="Texture2D" uid="uid://bnda4a45fu1po" path="res://Assets/Tilemaps/Tree-Assets.png" id="2_sf48o"]
-[ext_resource type="Texture2D" uid="uid://sr7ls8mruqib" path="res://Assets/Tilemaps/Props-Rocks.png" id="4_i20ii"]
+[ext_resource type="Texture2D" uid="uid://d2x25ui2m2upd" path="res://Assets/Tilemaps/Background.png" id="1_q6yjk"]
+[ext_resource type="Texture2D" uid="uid://bnda4a45fu1po" path="res://Assets/Tilemaps/Tree-Assets.png" id="2_hotkj"]
+[ext_resource type="Texture2D" uid="uid://cnb6vef35n3ad" path="res://Assets/Tilemaps/Tiles.png" id="3_3sj14"]
+[ext_resource type="Texture2D" uid="uid://sr7ls8mruqib" path="res://Assets/Tilemaps/Props-Rocks.png" id="4_gnebi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jqfl5"]
-texture = ExtResource("2_sf48o")
+texture = ExtResource("2_hotkj")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -294,7 +294,7 @@ texture = ExtResource("2_sf48o")
 18:23/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kmn0f"]
-texture = ExtResource("2_4wkv0")
+texture = ExtResource("3_3sj14")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -761,7 +761,7 @@ texture = ExtResource("2_4wkv0")
 19:24/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_n26l4"]
-texture = ExtResource("4_i20ii")
+texture = ExtResource("4_gnebi")
 1:0/0 = 0
 2:0/0 = 0
 4:0/0 = 0
@@ -1101,7 +1101,7 @@ sources/1 = SubResource("TileSetAtlasSource_kmn0f")
 sources/2 = SubResource("TileSetAtlasSource_n26l4")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_di5lf"]
-texture = ExtResource("2_4wkv0")
+texture = ExtResource("3_3sj14")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -2519,13 +2519,13 @@ texture = ExtResource("2_4wkv0")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_di5lf")
 
-[node name="Dungeon2" type="Node2D"]
+[node name="Level2" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_top = -105.0
 offset_right = 2611.0
 offset_bottom = 721.0
-texture = ExtResource("1_23bh3")
+texture = ExtResource("1_q6yjk")
 
 [node name="ForeGround" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_68er3")
